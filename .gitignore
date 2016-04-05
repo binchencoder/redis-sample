@@ -53,3 +53,5 @@ target/*
 logs/*
 bin
 bin/*
+/target/
+/.settings/
