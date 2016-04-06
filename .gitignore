@@ -47,11 +47,9 @@ Temporary Items
 .apdisk
 .classpath
 *.project
-.settings/*
 *.prefs
-target/*
-logs/*
-bin
-bin/*
+/bin/
 /target/
 /.settings/
+/test-output/
+/logs/
