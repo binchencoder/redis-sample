@@ -10,17 +10,18 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
 @ContextConfiguration(locations = "classpath:root-context.xml")
-public class Redis4ListOperationsTest extends AbstractTestNGSpringContextTests {
+public class Redis4RedisTemplateTest extends AbstractTestNGSpringContextTests {
 
 	@Autowired
 	private RedisTemplate<String, String> template; // inject the template as
 													// ListOperations
+
 	@Resource(name = "redisTemplate")
 	private ListOperations<String, String> listOps;
 
 	@Test
-	public void addLink() {
-		listOps.leftPush("a", "b");
+	public void valueOperationsTest() {
+		template.boundValueOps("firstkey").append("firstkey-value");
 	}
 
 }
