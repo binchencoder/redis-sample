@@ -1,27 +1,19 @@
 package com.jingoal.web.redis.sample.test;
 
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
-@ContextConfiguration(locations = "classpath:root-context.xml")
-public class Redis4RedisTemplateTest extends AbstractTestNGSpringContextTests {
+import com.jingoal.web.redis.sample.BaseTest;
 
-	@Autowired
-	private RedisTemplate<String, String> template; // inject the template as
-													// ListOperations
-
-	@Resource(name = "redisTemplate")
-	private ListOperations<String, String> listOps;
+public class Redis4RedisTemplateTest extends BaseTest {
 
 	@Test
 	public void valueOperationsTest() {
-		template.boundValueOps("firstkey").append("firstkey-value");
+		template.opsForValue().append("firstkey", "firstkey-value");
 	}
 
+	@Test
+	public void ListOperationsTest(){
+		template.opsForList().leftPush("", "");
+	}
+	
 }
