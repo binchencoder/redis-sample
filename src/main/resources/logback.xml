@@ -79,7 +79,7 @@
 	        </encoder>
 	    </appender>
 	
-	<root level="warn">
+	<root level="error">
 		<appender-ref ref="stdout" />
 		<appender-ref ref="debuglog" />		
 		<appender-ref ref="infolog" />		
@@ -87,10 +87,10 @@
 		<appender-ref ref="errorlog" />		
 	</root>
 	
-	<logger name="com.jingoal" level="info" />
+	<logger name="com.jingoal" level="WARN" />
 	<logger name="org.apache.ibatis" level="error"/>
 	<logger name="java.sql" level="error"/>
-	<logger name="org.springframework" level="info"/>
+	<logger name="org.springframework" level="WARN"/>
 
 	<!--  
 	<logger name="org.springframework" level="ERROR" />

@@ -29,7 +29,7 @@
 	<bean id="jedisConnectionFactory"
 		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
 		p:use-pool="true" p:host-name="localhost" p:port="6379" />
-
+	
 	<bean id="sentinelConfig"
 		class="org.springframework.data.redis.connection.RedisSentinelConfiguration">
 		<property name="master">
@@ -75,6 +75,21 @@
 			<bean
 				class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
 		</property>
+	</bean>
+	
+	<bean id="serializer" class="com.jingoal.web.hessian.HessianSerializer"/>
+	<bean id="messageDispatcher" class="com.jingoal.web.redis.RedisMessageDispatcher" init-method="start" destroy-method="shutdown">
+		<property name="listeners">
+			<list>
+				<ref bean="sampleListener"/>
+			</list>
+		</property>
+		<property name="serializer" ref="serializer"/>
+	</bean>
+	
+	<bean id="redisProducer" class="com.jingoal.web.redis.RedisProducer">
+		<property name="jedisConnectionFactory" ref="jedisConnectionFactory" />
+		<property name="serializer" ref="serializer" />
 	</bean>
 
 </beans>
