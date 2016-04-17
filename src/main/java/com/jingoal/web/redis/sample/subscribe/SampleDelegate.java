@@ -1,4 +1,4 @@
-package com.jingoal.web.redis.sample.listerer;
+package com.jingoal.web.redis.sample.subscribe;
 
 import java.io.Serializable;
 
@@ -21,12 +21,36 @@ public class SampleDelegate implements RedisMessageDelegate<Serializable>{
 	}
 	
 	@Override
-	public void handleMessage(Message<Serializable> message) {
+	public void onMessage(Message<Serializable> message) {
 		logger.info("onMessage");
 		
 		System.out.println("come in SampleListener");
 		System.err.println(message.getParams());
 		System.err.println(message.getPayload());
+	}
+
+	@Override
+	public void handleMessage(byte[] message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleMessage(Serializable message) {
+		// TODO Auto-generated method stub
+		System.out.println("handleMessage");
+	}
+
+	@Override
+	public void handleMessage(Serializable message, String channel) {
+		// TODO Auto-generated method stub
+		System.out.println("handleMessage");
+	}
+
+	@Override
+	public void handleMessage(Message<Serializable> message) {
+		// TODO Auto-generated method stub
+		System.out.println("handleMessage");
 	}
 	
 }

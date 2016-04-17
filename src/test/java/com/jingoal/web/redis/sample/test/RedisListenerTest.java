@@ -24,10 +24,12 @@ public class RedisListenerTest extends BaseTest {
 		map.put("key", "value");
 		message.setParams(map);
 		
-		try {
-			redisProducer.send(message);
-		} catch (MessageException e) {
-			e.printStackTrace();
+		for (int i = 0; i < 10; i++) {
+			try {
+				redisProducer.send(message);
+			} catch (MessageException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		/*for (int i = 0; i < 10; i++) {
