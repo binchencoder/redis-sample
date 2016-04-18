@@ -1,31 +1,29 @@
 package com.jingoal.web.redis.sample.message;
 
 import com.jingoal.web.redis.RedisMessage;
+import com.jingoal.web.redis.sample.model.User;
 
-public class SampleMessage extends RedisMessage<String> {
+public class UpdateUserMessage extends RedisMessage<User> {
 
-	private static final long serialVersionUID = 1L;
-
-	public SampleMessage(String m) {
+	public UpdateUserMessage(User m) {
 		super(m);
 	}
+
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 消息缓存或持久化的时长,默认一月
 	 * 
 	 * @return 时长为秒
 	 */
+	@Override
 	public int expire() {
 		return 25920000; // 一月
 	}
 
-	/**
-	 * 在Redis中的Key, 也是队列名称
-	 * 
-	 * @return 队列名称
-	 */
+	@Override
 	public String key() {
-		return "chenbin.message";
+		return "updateuser.message";
 	}
 
 }

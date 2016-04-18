@@ -7,10 +7,9 @@ import org.testng.annotations.Test;
 import com.jingoal.web.redis.sample.BaseTest;
 
 public class Redis4RedisTemplateTest extends BaseTest {
-	
+
 	@Autowired
 	private JedisConnectionFactory jedisConnectionFactory;
-	
 
 	@Test
 	public void valueOperationsTest() {
@@ -18,12 +17,12 @@ public class Redis4RedisTemplateTest extends BaseTest {
 	}
 
 	@Test
-	public void ListOperationsTest(){
+	public void ListOperationsTest() {
 		template.opsForList().leftPush("", "");
 	}
-	
-	public void myTest(){
-//		jedisConnectionFactory.getConnection().subscribe(listener, channels);
+
+	public void myTest() {
+		// jedisConnectionFactory.getConnection().subscribe(listener, channels);
 	}
-	
+
 }
