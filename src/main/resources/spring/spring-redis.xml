@@ -69,6 +69,9 @@
 			<bean
 				class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
 		</property>
+		<property name="hashKeySerializer">
+			<ref bean="serializer" />
+		</property>
 	</bean>
 
 	<bean id="serializer" class="com.jingoal.web.hessian.HessianSerializer" />
