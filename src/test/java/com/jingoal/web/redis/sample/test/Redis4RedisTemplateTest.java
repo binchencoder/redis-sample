@@ -11,10 +11,9 @@ import org.testng.annotations.Test;
 import com.jingoal.web.redis.sample.BaseTest;
 
 public class Redis4RedisTemplateTest extends BaseTest {
-	
+
 	@Autowired
 	private JedisConnectionFactory jedisConnectionFactory;
-	
 
 	@Test
 	public void valueOperationsTest() {
@@ -44,9 +43,4 @@ public class Redis4RedisTemplateTest extends BaseTest {
 		
 		//template.boundHashOps("igoal.1.user.2").delete("map.1", "map.2");
 	}
-	
-	public void myTest(){
-//		jedisConnectionFactory.getConnection().subscribe(listener, channels);
-	}
-	
 }

@@ -3,7 +3,7 @@ package com.jingoal.web.redis.sample;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
-	
+
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:root-context.xml");
 		try {

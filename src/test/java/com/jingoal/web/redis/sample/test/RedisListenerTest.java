@@ -12,18 +12,18 @@ import com.jingoal.web.redis.sample.BaseTest;
 import com.jingoal.web.redis.sample.message.SampleMessage;
 
 public class RedisListenerTest extends BaseTest {
-	
+
 	@Autowired
 	private RedisProducer<String> redisProducer;
-	
+
 	@Test
-	public void sendMsgTest(){
+	public void sendMsgTest() {
 		SampleMessage message = new SampleMessage("aaaaaaa");
-		
+
 		Map<String, Object> map = new HashMap<>();
 		map.put("key", "value");
 		message.setParams(map);
-		
+
 		for (int i = 0; i < 10; i++) {
 			try {
 				redisProducer.send(message);
@@ -31,14 +31,11 @@ public class RedisListenerTest extends BaseTest {
 				e.printStackTrace();
 			}
 		}
-		
-		/*for (int i = 0; i < 10; i++) {
-			try {
-				redisProducer.send(message);
-			} catch (MessageException e) {
-				e.printStackTrace();
-			}
-		}*/
+
+		/*
+		 * for (int i = 0; i < 10; i++) { try { redisProducer.send(message); }
+		 * catch (MessageException e) { e.printStackTrace(); } }
+		 */
 	}
-	
+
 }

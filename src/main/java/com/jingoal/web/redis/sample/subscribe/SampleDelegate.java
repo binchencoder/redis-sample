@@ -9,21 +9,21 @@ import org.springframework.stereotype.Component;
 import com.jingoal.web.common.Message;
 
 @Component
-public class SampleDelegate implements RedisMessageDelegate<Serializable>{
+public class SampleDelegate implements RedisMessageDelegate<Serializable> {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(SampleDelegate.class);
-	
+
 	@Override
 	public String key() {
 		return "chenbin.message";
 	}
-	
+
 	@Override
 	public void onMessage(Message<Serializable> message) {
 		logger.info("onMessage");
-		
+
 		System.out.println("come in SampleListener");
 		System.err.println(message.getParams());
 		System.err.println(message.getPayload());
@@ -32,7 +32,7 @@ public class SampleDelegate implements RedisMessageDelegate<Serializable>{
 	@Override
 	public void handleMessage(byte[] message) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -52,5 +52,5 @@ public class SampleDelegate implements RedisMessageDelegate<Serializable>{
 		// TODO Auto-generated method stub
 		System.out.println("handleMessage");
 	}
-	
+
 }

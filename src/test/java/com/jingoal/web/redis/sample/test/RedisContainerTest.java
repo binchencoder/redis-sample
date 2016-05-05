@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 import com.jingoal.web.redis.sample.BaseTest;
 
 public class RedisContainerTest extends BaseTest {
-	
+
 	@Autowired
 	private RedisMessageListenerContainer redisContainer;
-	
-	//@Test
-	public void test(){
+
+	// @Test
+	public void test() {
 		template.boundListOps("chatroom").leftPush("chatroomTest");
 	}
-	
+
 }

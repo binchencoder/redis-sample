@@ -81,6 +81,7 @@
 		<property name="listeners">
 			<list>
 				<ref bean="sampleListener" />
+				<ref bean="updateUserListener" />
 			</list>
 		</property>
 		<property name="serializer" ref="serializer" />

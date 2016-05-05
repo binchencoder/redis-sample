@@ -10,7 +10,7 @@ import com.jingoal.web.redis.sample.BaseTest;
 
 public class RedisCallbackTest extends BaseTest {
 
-	@Test
+	// @Test
 	public void redisCallbackTest() {
 		template.execute(new RedisCallback<Object>() {
 			public Object doInRedis(RedisConnection connection) throws DataAccessException {
@@ -18,7 +18,7 @@ public class RedisCallbackTest extends BaseTest {
 				// Can cast to StringRedisConnection if using a
 				// StringRedisTemplate
 				((StringRedisConnection) connection).set("key", "value");
-				
+
 				return size;
 			}
 		});
